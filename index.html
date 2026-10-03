@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mock Machine - Ultimate Banking & Regulatory Exam Mock Tests</title>
+  <meta name="description" content="Realistic TCS iON mock tests for SBI PO, SBI Clerk, IBPS PO, IBPS Clerk, RRB PO/Clerk, RBI Grade B/A, SEBI Grade A/B, NABARD & LIC exams with real pre & mains patterns.">
+  <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="./css/sidebar-layout.css">
+  <link rel="stylesheet" href="./css/exam-portal.css">
+  <link rel="stylesheet" href="./css/tcs-simulator.css">
+  <link rel="stylesheet" href="./css/result-analytics.css">
+  <link rel="stylesheet" href="./css/profile-stats.css">
+  <link rel="stylesheet" href="./css/subjective-papers.css">
+  <link rel="stylesheet" href="./css/english-lab.css">
+</head>
+<body>
+
+  <!-- App Shell: Left Sidebar + Main Viewport -->
+  <div class="app-shell">
+    
+    <!-- LEFT SIDEBAR NAVIGATION -->
+    <aside class="app-sidebar" id="mainSidebar">
+      <div>
+        <div class="sidebar-brand" id="brandLogoLink" title="Go to Home">
+          <div class="brand-logo" title="Home">🏠</div>
+          <div class="brand-text">
+            <h1>Mock Machine</h1>
+            <span>Exam Platform</span>
+          </div>
+        </div>
+
+        <nav class="sidebar-nav-list">
+          <button id="sidebarNavHome" class="sidebar-nav-item active" title="MCQ Mock Papers">
+            <span class="nav-icon">📝</span>
+            <span>MCQ Mock Papers</span>
+          </button>
+          
+          <button id="sidebarNavSubjective" class="sidebar-nav-item" title="Subjective & Descriptive Papers">
+            <span class="nav-icon">✍️</span>
+            <span>Descriptive Papers</span>
+          </button>
+
+          <button id="sidebarNavEnglish" class="sidebar-nav-item" title="English Essay & Speaking Lab">
+            <span class="nav-icon">🗣️</span>
+            <span>English Section</span>
+            <span class="sidebar-badge-count">NEW</span>
+          </button>
+
+          <button id="sidebarNavProfile" class="sidebar-nav-item" title="Gaming Profile & Analytics">
+            <span class="nav-icon">📊</span>
+            <span>Profile & Stats</span>
+          </button>
+        </nav>
+      </div>
+
+      <!-- Sidebar Footer User Card & Theme Switch -->
+      <div class="sidebar-footer">
+        <div class="sidebar-user-card" id="sidebarProfileCard" title="View Gamer Profile">
+          <div class="sidebar-avatar">AP</div>
+          <div class="sidebar-user-info">
+            <span class="sidebar-username">Abhoy Paul</span>
+            <span class="sidebar-lvl-badge" id="sidebarLvlText">LVL 1 Novice</span>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.25rem 0.5rem;">
+          <span style="font-size: 0.8rem; color: var(--text-dim);">Theme Mode</span>
+          <button id="btnThemeToggle" class="btn-icon" title="Toggle Theme" style="width: 34px; height: 34px;">☀️</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN VIEWPORT CONTAINER -->
+    <div class="app-main-viewport" id="mainViewport">
+      
+      <!-- Mobile Topbar Header (Visible on Mobile Screens) -->
+      <header class="mobile-topbar" id="mobileTopbar">
+        <button id="btnMobileMenuToggle" class="btn-icon" title="Toggle Navigation Menu">
+          <span style="font-size: 1.25rem;">☰</span>
+        </button>
+        <div class="mobile-brand" id="mobileBrandHome">
+          <span style="font-size: 1.1rem;">🏠</span>
+          <span style="font-weight: 800; font-family: var(--font-display); font-size: 1.1rem;">Mock Machine</span>
+        </div>
+        <button id="btnMobileThemeToggle" class="btn-icon" title="Toggle Theme">
+          <span>☀️</span>
+        </button>
+      </header>
+
+      <!-- Sidebar Backdrop for Mobile Drawer -->
+      <div id="sidebarBackdrop" class="sidebar-backdrop"></div>
+
+  <!-- ================= VIEW 1: EXAM SELECTION PORTAL ================= -->
+  <main id="portalView" class="portal-container">
+    <section class="hero-section">
+      <div class="hero-badge">
+        <span>✨ Powered by Abhoy's Brain 🧠</span>
+      </div>
+      <h1 class="hero-title">
+        Ace Banking & Regulatory Exams with <br>
+        <span class="gradient-text">Real-Time Mock Tests</span>
+      </h1>
+      <p class="hero-subtitle">
+        Practice with exact exam patterns, strict sectional timers, negative marking schemes, and authentic questions for SBI, IBPS, RRB, RBI Grade A/B, SEBI Grade A/B, NABARD & LIC.
+      </p>
+
+      <!-- Category Filter Pills -->
+      <div id="categoryFilter" class="category-filter-wrapper"></div>
+    </section>
+
+    <!-- Exam Cards Grid -->
+    <section>
+      <div id="examsGrid" class="exams-grid"></div>
+    </section>
+  </main>
+
+  <!-- ================= VIEW 2: TCS iON EXAM ENGINE ================= -->
+  <div id="simulatorView" class="simulator-wrapper">
+    <!-- TCS Top Header -->
+    <div class="tcs-top-bar">
+      <div class="tcs-exam-info">
+        <h2 id="simExamTitle">SBI PO - Prelims (Phase-I)</h2>
+        <span class="tcs-badge">TCS iON CBT Exam</span>
+      </div>
+
+      <div class="tcs-timer-box" id="simTimerBox">
+        <span class="timer-label" id="simTimerLabel">Time Left:</span>
+        <span class="timer-digits" id="simTimerDigits">20:00</span>
+      </div>
+
+      <div class="tcs-user-meta">
+        <div class="candidate-avatar">AP</div>
+        <div class="candidate-details">
+          <span class="candidate-name">Candidate: Abhoy Paul</span>
+          <span class="candidate-roll">Roll No: 2026-IBPS-98421</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Subject / Section Tabs Strip -->
+    <div class="tcs-subject-strip">
+      <div class="subject-tabs" id="simSubjectTabs">
+        <!-- Tabs inserted via JS -->
+      </div>
+      <div class="strip-quick-actions">
+        <button id="btnSimQuestionPaper" class="btn-strip-tool">
+          <span>📄 Question Paper</span>
+        </button>
+        <button id="btnSimInstructions" class="btn-strip-tool">
+          <span>ℹ️ Instructions</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Simulator Body Layout: Question Pane + Palette Pane -->
+    <div class="simulator-body">
+      <!-- Left: Question Pane -->
+      <div class="question-pane">
+        <div class="question-pane-header">
+          <div class="q-header-left">
+            <span class="q-num-badge" id="simQuestionNumber">Question 1</span>
+            <span class="q-marks-tag" id="simMarksTag">Marks: +1.0</span>
+            <span class="q-neg-tag" id="simNegTag">Negative: -0.25</span>
+          </div>
+          <div class="q-header-right">
+            <span>Language: <strong>English</strong></span>
+          </div>
+        </div>
+
+        <div class="question-content-scroll" id="simQuestionBody">
+          <!-- Question content loaded dynamically -->
+        </div>
+
+        <!-- Bottom Action Bar -->
+        <div class="question-action-bar">
+          <div class="action-group-left">
+            <button id="btnSimMarkReviewNext" class="btn-tcs btn-tcs-purple">
+              <span>Mark for Review & Next</span>
+            </button>
+            <button id="btnSimClearResponse" class="btn-tcs btn-tcs-secondary">
+              <span>Clear Response</span>
+            </button>
+          </div>
+
+          <div class="action-group-right">
+            <button id="btnSimSaveMarkReview" class="btn-tcs btn-tcs-secondary">
+              <span>Save & Mark for Review</span>
+            </button>
+            <button id="btnSimSaveNext" class="btn-tcs btn-tcs-primary">
+              <span>Save & Next</span>
+            </button>
+            <button id="btnSimSubmitTest" class="btn-tcs btn-tcs-submit">
+              <span>Submit Test</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Palette Pane -->
+      <div class="palette-pane">
+        <!-- Legend Summary -->
+        <div class="legend-summary-box">
+          <div class="legend-item">
+            <span class="palette-shape answered" id="legendCountAnswered">0</span>
+            <span>Answered</span>
+          </div>
+          <div class="legend-item">
+            <span class="palette-shape not-answered" id="legendCountNotAnswered">0</span>
+            <span>Not Answered</span>
+          </div>
+          <div class="legend-item">
+            <span class="palette-shape not-visited" id="legendCountNotVisited">0</span>
+            <span>Not Visited</span>
+          </div>
+          <div class="legend-item">
+            <span class="palette-shape marked-review" id="legendCountMarked">0</span>
+            <span>Marked for Review</span>
+          </div>
+          <div class="legend-item" style="grid-column: span 2;">
+            <span class="palette-shape ans-marked-review" id="legendCountAnsMarked">0</span>
+            <span>Ans & Marked for Review (Evaluated)</span>
+          </div>
+        </div>
+
+        <div class="palette-section-header">
+          <span>Question Palette</span>
+        </div>
+
+        <!-- Palette Grid Buttons -->
+        <div class="palette-grid-scroll" id="simPaletteGrid">
+          <!-- 1..N numbers loaded dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= VIEW 3: RESULT & ANALYTICS DASHBOARD ================= -->
+  <main id="analyticsView" class="analytics-container" style="display: none;">
+    <!-- Scorecard Hero -->
+    <section id="analyticsHero" class="result-hero"></section>
+
+    <!-- Sectional Breakdown -->
+    <h3 class="section-analytics-header">📊 Section-wise Performance Analysis</h3>
+    <div id="analyticsSectionCards" class="section-cards-grid"></div>
+
+    <!-- Question Solutions & Review -->
+    <section class="solutions-section">
+      <div class="solutions-toolbar">
+        <div>
+          <h3 style="font-family: var(--font-display); font-size: 1.3rem;">📝 Comprehensive Solutions & Question Review</h3>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">Review step-by-step explanations, shortcut formulas, and mistakes.</p>
+        </div>
+        
+        <div class="solutions-filter-group">
+          <button class="filter-pill-btn active" data-filter="all">All Questions</button>
+          <button class="filter-pill-btn" data-filter="correct">✅ Correct Only</button>
+          <button class="filter-pill-btn" data-filter="incorrect">❌ Incorrect Only</button>
+          <button class="filter-pill-btn" data-filter="unattempted">⚪ Unattempted</button>
+        </div>
+      </div>
+
+      <div id="analyticsSolutionsList"></div>
+    </section>
+
+    <!-- Action Buttons -->
+    <div class="analytics-actions">
+      <button id="btnAnalyticsReattempt" class="btn-start-test" style="width: auto; padding: 0.85rem 2rem;">
+        <span>🔄 Re-Attempt Mock Test</span>
+      </button>
+      <button id="btnAnalyticsHome" class="btn-level pre" style="width: auto; padding: 0.85rem 2rem; font-size: 1rem;">
+        <span>🏛️ Choose Another Exam</span>
+      </button>
+    </div>
+  </main>
+
+  <!-- ================= VIEW 4: GAMING PROFILE & LIFETIME ANALYTICS ================= -->
+  <main id="profileView" class="profile-container" style="display: none;">
+    <!-- Gamer Hero Card -->
+    <div id="profileHeroBox"></div>
+
+    <!-- Lifetime Summary Tiles Grid -->
+    <div id="profileLifetimeGrid" class="lifetime-stats-grid"></div>
+
+    <!-- 2-Column: Skill Proficiency + Score Trend Chart -->
+    <div class="analytics-two-col">
+      <!-- Left: Skills Vector -->
+      <div class="analytics-card">
+        <div class="analytics-card-title">
+          <span>⚔️ Skill Proficiency Index</span>
+          <span style="font-size: 0.75rem; color: var(--text-dim);">Live Accuracy Vector</span>
+        </div>
+        <div id="profileSkillsList"></div>
+      </div>
+
+      <!-- Right: SVG Score Trend -->
+      <div class="analytics-card">
+        <div class="analytics-card-title">
+          <span>📈 Score Progression Trend</span>
+          <span style="font-size: 0.75rem; color: #38bdf8;">Last 10 Attempts</span>
+        </div>
+        <div id="profileTrendGraph" class="score-trend-svg-container"></div>
+      </div>
+    </div>
+
+    <!-- Unlocked Achievements Trophies -->
+    <h3 class="section-analytics-header">🏆 Trophies & Badges Unlocked</h3>
+    <div id="profileAchievementsGrid" class="achievements-grid"></div>
+
+    <!-- Attempted Mocks History Log -->
+    <div class="history-section">
+      <div class="solutions-toolbar" style="margin-bottom: 1.25rem;">
+        <div>
+          <h3 style="font-family: var(--font-display); font-size: 1.3rem;">📜 Complete Mock Test History Log</h3>
+          <p style="color: var(--text-muted); font-size: 0.85rem;">All your past mock attempts, percentiles, and scores.</p>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="exam-data-table">
+          <thead>
+            <tr>
+              <th>Attempt</th>
+              <th>Exam & Level</th>
+              <th>Mock #</th>
+              <th>Score</th>
+              <th>Accuracy</th>
+              <th>Percentile</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="profileHistoryTableBody">
+            <!-- Populated via JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Danger Zone Reset Section -->
+    <div class="danger-zone-box">
+      <div class="danger-text">
+        <h4>⚠️ Danger Zone: Reset Profile & Lifetime History</h4>
+        <p>Permanently delete all your mock test records, reset XP to 0, level to 1, and wipe all unlocked trophies.</p>
+      </div>
+      <div>
+        <button id="btnResetProfileData" class="btn-danger-reset">
+          <span>🗑️ Reset Full Profile Data</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Profile Back to Home Button -->
+    <div style="display: flex; justify-content: center; margin-top: 2.5rem;">
+      <button id="btnProfileBackHome" class="btn-level pre" style="width: auto; padding: 0.85rem 2.5rem; font-size: 1rem;">
+        <span>🏠 Back to Exam Portal</span>
+      </button>
+    </div>
+  </main>
+
+  <!-- ================= VIEW 5: SUBJECTIVE & DESCRIPTIVE PAPERS ================= -->
+  <main id="subjectiveView" class="subjective-container" style="display: none;">
+    <!-- Subjective Hero -->
+    <section class="subjective-hero">
+      <div class="hero-badge" style="border-color: rgba(139, 92, 246, 0.4); color: #c084fc; background: rgba(139, 92, 246, 0.15);">
+        <span>✍️ Real Standard Evaluator &bull; Multi-Page PDF OCR</span>
+      </div>
+      <h1 class="hero-title">
+        Mains Descriptive & Subjective <br>
+        <span class="gradient-text" style="background: linear-gradient(135deg, #c084fc, #818cf8, #38bdf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Answer Evaluation Lab</span>
+      </h1>
+      <p class="hero-subtitle">
+        Write on paper, upload your multi-page scanned PDF or type answers directly. Evaluated strictly against official banking & regulatory rubrics (Content, Grammar, Formality, Word Limits).
+      </p>
+    </section>
+
+    <!-- Subjective Exam Cards -->
+    <div id="subjectiveExamsGrid" class="subjective-grid"></div>
+
+    <!-- Interactive Paper Workspace (Appears when paper is clicked) -->
+    <div id="subjectivePaperWorkspace" class="paper-workspace" style="display: none;">
+      <div id="subjectivePaperContent"></div>
+
+      <!-- Evaluation Loading State -->
+      <div id="subjectiveEvalLoading" class="eval-loading-box">
+        <div class="spinner-purple"></div>
+        <h3 style="font-family: var(--font-display); font-size: 1.3rem; margin-bottom: 0.5rem;">🔍 Analyzing & Evaluating Answer Sheet...</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Running multi-page OCR &bull; Checking structure & arguments &bull; Grading against official marking rubrics...</p>
+      </div>
+
+      <!-- Evaluated Report Card Output -->
+      <div id="subjectiveEvalReportBox"></div>
+    </div>
+
+    <!-- Back Home -->
+    <div style="display: flex; justify-content: center; margin-top: 2rem;">
+      <button id="btnSubjectiveBackHome" class="btn-level pre" style="width: auto; padding: 0.85rem 2.5rem; font-size: 1rem;">
+        <span>🏠 Back to Exam Portal</span>
+      </button>
+    </div>
+  </main>
+
+  <!-- ================= VIEW 6: ENGLISH MASTER LAB (ESSAYS & SPEAKING BOT) ================= -->
+  <main id="englishLabView" class="english-lab-container" style="display: none;">
+    <!-- English Hero -->
+    <section class="english-hero">
+      <div class="hero-badge" style="border-color: rgba(56, 189, 248, 0.4); color: #38bdf8; background: rgba(56, 189, 248, 0.12);">
+        <span>🗣️ 16-Domain Essay Evaluator &bull; Live Speaking AI Coach</span>
+      </div>
+      <h1 class="hero-title">
+        English Master Lab <br>
+        <span class="gradient-text" style="background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Essay Writing & Real-Time Speaking Coach</span>
+      </h1>
+      <p class="hero-subtitle">
+        Generate dynamic essay topics across 16 specialized domains with PDF evaluation, or practice conversational English with our AI coach that provides instant grammar corrections.
+      </p>
+    </section>
+
+    <!-- Sub Navigation Switcher (Essay vs Speaking Bot) -->
+    <div id="engLabSubNav"></div>
+
+    <!-- Active Mode Workspace -->
+    <div id="engLabContent"></div>
+
+    <!-- Back Home -->
+    <div style="display: flex; justify-content: center; margin-top: 2.5rem;">
+      <button id="btnEngBackHome" class="btn-level pre" style="width: auto; padding: 0.85rem 2.5rem; font-size: 1rem;">
+        <span>🏠 Back to Exam Portal</span>
+      </button>
+    </div>
+  </main>
+
+  </div> <!-- End .app-main-viewport -->
+</div> <!-- End .app-shell -->
+
+  <!-- ================= MODALS & OVERLAYS ================= -->
+
+  <!-- Exam Summary / Level Launch Modal -->
+  <div id="examSummaryModal" class="modal-overlay">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 id="modalExamTitle">SBI PO - Prelims</h3>
+        <button id="btnModalClose" class="btn-close">&times;</button>
+      </div>
+      <div id="modalExamBody"></div>
+    </div>
+  </div>
+
+  <!-- Question Paper Popup Modal -->
+  <div id="simQPModal" class="modal-overlay">
+    <div class="modal-content" style="max-width: 800px;">
+      <div class="modal-header">
+        <h3>Question Paper View</h3>
+        <button id="btnQPModalClose" class="btn-close">&times;</button>
+      </div>
+      <div id="simQPModalBody"></div>
+    </div>
+  </div>
+
+  <!-- Instructions Modal -->
+  <div id="simInstructionsModal" class="modal-overlay">
+    <div class="modal-content" style="max-width: 750px;">
+      <div class="modal-header">
+        <h3>Examination Instructions</h3>
+        <button id="btnInstructionsModalClose" class="btn-close">&times;</button>
+      </div>
+      <div id="simInstructionsModalBody"></div>
+    </div>
+  </div>
+
+  <!-- Submit Confirmation Modal -->
+  <div id="simSubmitModal" class="modal-overlay">
+    <div class="modal-content" style="max-width: 700px;">
+      <div class="modal-header">
+        <h3>Submit Examination Confirmation</h3>
+      </div>
+      <div id="simSubmitModalBody"></div>
+    </div>
+  </div>
+
+  <!-- Global Toast Notification -->
+  <div id="globalToast" class="toast-notification"></div>
+
+  <!-- Main JavaScript App -->
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
